@@ -3,7 +3,7 @@
     "name": "Weather: Do I need an umbrella?",
     "icons": [
       {
-        "src": "/micro-joke/icon.svg",
+        "src": "icon.svg",
         "type": "image/svg+xml",
         "sizes": "512x512"
       },
@@ -38,25 +38,24 @@
         "type": "image/png"
       }
     ],
-    "id": "/micro-joke/?source=pwa",
-    "start_url": "/micro-joke/?source=pwa",
+    "id": "?source=pwa",
+    "start_url": "?source=pwa",
     "background_color": "#3367D6",
     "display": "standalone",
-    "scope": "/micro-joke/",
     "theme_color": "#3367D6",
     "shortcuts": [
       {
         "name": "How's weather today?",
         "short_name": "Today",
         "description": "View weather information for today",
-        "url": "/micro-joke/today?source=pwa",
+        "url": "today?source=pwa",
         "icons": [{ "src": "https://via.placeholder.com/192", "sizes": "192x192" }]
       },
       {
         "name": "How's weather tomorrow?",
         "short_name": "Tomorrow",
         "description": "View weather information for tomorrow",
-        "url": "/micro-joke/tomorrow?source=pwa",
+        "url": "tomorrow?source=pwa",
         "icons": [{ "src": "https://via.placeholder.com/192", "sizes": "192x192" }]
       }
     ],

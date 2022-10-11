@@ -1,9 +1,16 @@
+let jokeCache;
 fetch('jokes.txt')
 .then(response => response.text())
 .then(text => {
     const jokes = text.split('\n');
-    const joke = jokes[Math.floor(Math.random() * jokes.length)];
-    document.getElementById('joke').innerHTML = joke;
-    console.log(text);
+    jokeCache = jokes;
+    getRandomJoke();
 })
 .catch(err => console.log(err));
+
+function getRandomJoke() {
+    const randomJoke = jokeCache[Math.floor(Math.random() * jokeCache.length)];
+    document.getElementById('joke').innerHTML = randomJoke;
+}
+
+document.getElementById('jokeBtn').addEventListener('click', getRandomJoke);
