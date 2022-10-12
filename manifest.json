@@ -1,6 +1,6 @@
 {
-    "short_name": "Weather",
-    "name": "Weather: Do I need an umbrella?",
+    "short_name": "Jokes",
+    "name": "Jokes: Ready for a laugh?",
     "icons": [
       {
         "src": "icon.svg",
@@ -43,23 +43,7 @@
     "background_color": "#3367D6",
     "display": "standalone",
     "theme_color": "#3367D6",
-    "shortcuts": [
-      {
-        "name": "How's weather today?",
-        "short_name": "Today",
-        "description": "View weather information for today",
-        "url": "today?source=pwa",
-        "icons": [{ "src": "https://via.placeholder.com/192", "sizes": "192x192" }]
-      },
-      {
-        "name": "How's weather tomorrow?",
-        "short_name": "Tomorrow",
-        "description": "View weather information for tomorrow",
-        "url": "tomorrow?source=pwa",
-        "icons": [{ "src": "https://via.placeholder.com/192", "sizes": "192x192" }]
-      }
-    ],
-    "description": "Weather forecast information",
+    "description": "Random jokes to make you laugh.",
     "screenshots": [
       {
         "src": "https://via.placeholder.com/512",
