@@ -3,7 +3,7 @@
     "name": "Jokes: Ready for a laugh?",
     "icons": [
       {
-        "src": "icon.svg",
+        "src": "/joke/icon.svg",
         "type": "image/svg+xml",
         "sizes": "512x512"
       },
@@ -38,8 +38,9 @@
         "type": "image/png"
       }
     ],
-    "id": "?source=pwa",
-    "start_url": "?source=pwa",
+    "id": "/joke/?source=pwa",
+    "start_url": "/joke/?source=pwa",
+    "scope": "/joke/",
     "background_color": "#3367D6",
     "display": "standalone",
     "theme_color": "#3367D6",

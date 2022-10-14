@@ -1,4 +1,3 @@
-const divInstall = document.getElementById('installContainer');
 const butInstall = document.getElementById('butInstall');
 
 /* Put code here */
@@ -9,13 +8,14 @@ window.addEventListener('beforeinstallprompt', (event) => {
     // Stash the event so it can be triggered later.
     window.deferredPrompt = event;
     // Remove the 'hidden' class from the install button container.
-    divInstall.classList.toggle('hidden', false);
+    butInstall.style.display = "block";
 });
 
 butInstall.addEventListener('click', async () => {
     console.log('👍', 'butInstall-clicked');
     const promptEvent = window.deferredPrompt;
     if (!promptEvent) {
+        console.log('👎', 'deferredPrompt is null');
         // The deferred prompt isn't available.
         return;
     }
@@ -28,7 +28,7 @@ butInstall.addEventListener('click', async () => {
     // prompt() can only be called once.
     window.deferredPrompt = null;
     // Hide the install button.
-    divInstall.classList.toggle('hidden', true);
+    butInstall.style.display = "none";
 });
 
 window.addEventListener('appinstalled', (event) => {
@@ -52,5 +52,5 @@ if (window.location.protocol === 'http:') {
     const requireHTTPS = document.getElementById('requireHTTPS');
     const link = requireHTTPS.querySelector('a');
     link.href = window.location.href.replace('http://', 'https://');
-    requireHTTPS.classList.remove('hidden');
+    requireHTTPS.style.display = "block";
 }
