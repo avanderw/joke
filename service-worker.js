@@ -3,19 +3,20 @@ const VERSION = "v1.0.0";
 const OFFLINE_URL = 'offline.html';
 const URLS_TO_CACHE = ["/", "index.js", "joke.js", "jokes.txt"];
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', function (event) {
   console.log('[ServiceWorker] Install');
-  
+
   event.waitUntil((async () => {
-    const cache = await caches.open(CACHE_NAME + VERSION)
-    .then(cache => {
-      return cache.addAll(URLS_TO_CACHE);
-    });
-    // Setting {cache: 'reload'} in the new request will ensure that the response
-    // isn't fulfilled from the HTTP cache; i.e., it will be from the network.
-    await cache.add(new Request(OFFLINE_URL, {cache: 'reload'}));
+    await caches.open(CACHE_NAME + VERSION)
+      .then(cache => {
+        // Setting {cache: 'reload'} in the new request will ensure that the response
+        // isn't fulfilled from the HTTP cache; i.e., it will be from the network.
+        cache.add(new Request(OFFLINE_URL, { cache: 'reload' }));
+        return cache.addAll(URLS_TO_CACHE);
+
+      });
   })());
-  
+
   self.skipWaiting();
 });
 
@@ -33,7 +34,7 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function (event) {
   console.log('[Service Worker] Fetch', event.request.url);
   if (event.request.mode === 'navigate') {
     event.respondWith((async () => {
