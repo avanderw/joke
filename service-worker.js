@@ -1,4 +1,5 @@
-const CACHE_NAME = 'offline';
+const CACHE_NAME = 'cache';
+const VERSION = "v1.0.0";
 const OFFLINE_URL = 'offline.html';
 const URLS_TO_CACHE = ["/", "index.js", "joke.js", "jokes.txt"];
 
@@ -6,7 +7,7 @@ self.addEventListener('install', function(event) {
   console.log('[ServiceWorker] Install');
   
   event.waitUntil((async () => {
-    const cache = await caches.open(CACHE_NAME)
+    const cache = await caches.open(CACHE_NAME + VERSION)
     .then(cache => {
       return cache.addAll(URLS_TO_CACHE);
     });
