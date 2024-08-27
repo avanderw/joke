@@ -3,9 +3,9 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
         server: {
-                host: true, // used to allow traffic when in a container
+                host: true,
                 watch: {
-                        usePolling: true // required for WSL/docker windows filesystem mount (CAUTION: CPU heavy)
+                        usePolling: true // required for WSL/docker windows filesystem mount, CPU heavy
                 }
         },
         plugins: [sveltekit()]
