@@ -91,6 +91,21 @@ a:hover {
   color: var(--secondary-3);
 }
 
+button {
+  padding: 0.5rem 1rem;
+  color: var(--neutal-1);
+  background-color: var(--primary-2);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+button:hover {
+  color: var(--neutral-5);
+  background-color: var(--secondary-3);
+  cursor: pointer;
+}
+
 svg {
   width: 1.5rem;
   height: 1.5rem;

@@ -1,33 +1,72 @@
-<div>
-	<a href="https://avanderw.co.za"><svg><use href="feather-sprite.svg#home" /></svg>Home</a>
-	<a href="https://github.com/avanderw/joke">
-		<svg><use href="feather-sprite.svg#github" /></svg>
-		Source
-	</a>
-  <a href="https://tracking.avanderw.co.za/avanderw.co.za">
-		<svg><use href="feather-sprite.svg#bar-chart-2" /></svg>
-		Analytics
-	</a>
-</div>
+<script lang="ts">
+  import jokesFile from "$lib/jokes.txt?raw";
+  import { onMount } from "svelte";
+  import Header from "./header.svelte";
+
+  const jokes = jokesFile.split("\n").map((joke: string) => joke.split("<>"));
+  const warnings: string[] = [];
+
+  $: setup = "";
+  $: punchline = "";
+  let cache:number;
+  function randomJoke() {
+    const joke = jokes[Math.floor(Math.random() * jokes.length)];
+    setup = joke[0];
+    punchline="...";
+    if (cache) clearTimeout(cache);
+    cache = setTimeout(() => {
+      punchline = joke[1];
+    }, 3000);
+  }
+
+  onMount(randomJoke);
+
+  jokes.forEach((joke: string[], index: number) => {
+    if (joke.length < 2) {
+      warnings.push(`Joke ${index + 1} does not contain a placeholder.`);
+    }
+  });
+</script>
+
+<Header />
+
+<h1>Ready for a laugh?</h1>
+
+<p>{setup}</p>
+<p class:animate={punchline !== "..."}>{punchline}</p>
+<button on:click={randomJoke}>Get Joke</button>
+<button>Share</button>
+
+{#if warnings.length > 0}
+  <h2>Warnings</h2>
+  <ul>
+    {#each warnings as warning}
+      <li>{warning}</li>
+    {/each}
+  </ul>
+{/if}
+
+<p class="footer">-- pool contains {jokes.length} jokes --</p>
 
 <style>
-    h1 {
-      margin-top: 0;
-      padding-top: 0;
+  button {
+    display: inline
+  }
+  .animate {
+    color: var(--secondary-3);
+    animation: fadeIn 1s;
+  }
+  .footer {
+    color: var(--neutral-3);
+    font-size: smaller;
+    text-align: center;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
     }
-      a {
-          display: inline-flex;
-          gap: 0.5rem;
-      }
-      div {
-          display: flex;
-          align-items: center;
-          justify-content: right;
-          gap: 2rem;
-      font-size: smaller;
-      }
-    svg {
-      width: 1rem;
-      height: 1rem;
+    to {
+      opacity: 1;
     }
-  </style>
+  }
+</style>
