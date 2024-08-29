@@ -1,11 +1,5 @@
 {
   "short_name": "Jokes",
-  "protocol_handlers": [
-    {
-      "protocol": "web+app",
-      "url": "/joke/?source=pwa"
-    }
-  ],
   "shortcuts": [
     {
       "name": "Random Joke",

@@ -44,3 +44,9 @@
 {#if display}
   <button on:click={install}>Install</button>
 {/if}
+
+<style>
+  button {
+    margin-top: 1rem;
+  }
+</style>
