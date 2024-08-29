@@ -8,11 +8,11 @@
 
   $: setup = "";
   $: punchline = "";
-  let cache:number;
+  let cache: number;
   function randomJoke() {
     const joke = jokes[Math.floor(Math.random() * jokes.length)];
     setup = joke[0];
-    punchline="...";
+    punchline = "...";
     if (cache) clearTimeout(cache);
     cache = setTimeout(() => {
       punchline = joke[1];
@@ -26,6 +26,22 @@
       warnings.push(`Joke ${index + 1} does not contain a placeholder.`);
     }
   });
+
+  function shareJoke() {
+    if (navigator.share) {
+      console.log(setup, punchline);
+      navigator
+        .share({
+          title: "Joke",
+          text: setup + "\n" + punchline,
+          url: window.location.href,
+        })
+        .then(() => console.log("Successful share"))
+        .catch((error) => console.log("Error sharing", error));
+    } else {
+      console.log("Web Share API not supported");
+    }
+  }
 </script>
 
 <Header />
@@ -35,7 +51,7 @@
 <p>{setup}</p>
 <p class:animate={punchline !== "..."}>{punchline}</p>
 <button on:click={randomJoke}>Get Joke</button>
-<button>Share</button>
+<button on:click={shareJoke}>Share</button>
 
 {#if warnings.length > 0}
   <h2>Warnings</h2>
@@ -46,11 +62,11 @@
   </ul>
 {/if}
 
-<p class="footer">-- pool contains {jokes.length} jokes --</p>
+<p class="footer">-- pool has {jokes.length} jokes --</p>
 
 <style>
   button {
-    display: inline
+    display: inline;
   }
   .animate {
     color: var(--secondary-3);
