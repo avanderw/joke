@@ -1,5 +1,36 @@
 {
   "short_name": "Jokes",
+  "protocol_handlers": [
+    {
+      "protocol": "web+app",
+      "url": "/joke/?source=pwa"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Random Joke",
+      "short_name": "Random Joke",
+      "url": "/joke/?source=pwa",
+      "icons": [
+        {
+          "src": "/joke/icon.svg",
+          "type": "image/svg+xml",
+          "purpose": "any",
+          "sizes": "any"
+        },
+        {
+          "src": "/joke/icon-144.png",
+          "type": "image/png",
+          "sizes": "144x144"
+        },
+        {
+          "src": "/joke/icon-512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ]
+    }
+  ],
   "name": "Jokes: Ready for a laugh?",
   "icons": [
     {
