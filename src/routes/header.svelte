@@ -2,7 +2,6 @@
     import Pwa from "./pwa.svelte";
 </script>
 <div>
-  <Pwa />
   <a href="https://avanderw.co.za"
     ><svg><use href="feather-sprite.svg#home" /></svg>Andrew</a
   >
@@ -15,6 +14,7 @@
     Analytics
   </a>
 </div>
+<Pwa />
 
 <style>
   a {
