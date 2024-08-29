@@ -48,6 +48,11 @@
       "src": "/joke/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "/joke/icon.png",
+      "type": "image/png",
+      "sizes": "872x739"
     }
   ],
   "id": "/joke/?source=pwa",
@@ -60,9 +65,21 @@
   "description": "Random jokes to make you laugh.",
   "screenshots": [
     {
-      "src": "screenshot-01.jpg",
-      "type": "image/jpg",
-      "sizes": "1080x2400"
+      "src": "screenshot-narrow.png",
+      "type": "image/png",
+      "sizes": "768x1344",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshot-wide.png",
+      "type": "image/png",
+      "sizes": "1344x768",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshot-square.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
     }
   ],
   "dir": "ltr",
