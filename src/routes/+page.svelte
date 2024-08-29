@@ -52,6 +52,7 @@
 <p class:animate={punchline !== "..."}>{punchline}</p>
 <button on:click={randomJoke}>Get Joke</button>
 <button on:click={shareJoke}>Share</button>
+<img src="screenshot-wide.png" width="256" alt="Smiley face"/>
 
 {#if warnings.length > 0}
   <h2>Warnings</h2>
@@ -76,6 +77,10 @@
     color: var(--neutral-3);
     font-size: smaller;
     text-align: center;
+  }
+  img {
+    display: block;
+    margin: 1rem auto;
   }
   @keyframes fadeIn {
     from {
